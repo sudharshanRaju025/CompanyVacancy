@@ -1,0 +1,135 @@
+﻿@model List<CompanyVacancy.Models.CompanyDetails>
+
+<!-- Header with background gradient -->
+@* <header class="bg-primary text-white text-center py-2 mb-2" style="background: linear-gradient(135deg, #007bff, #6610f2);">
+    <div class="container">
+        <h1 class="h5 fw-bold mb-1">Company Vacancy Portal</h1>
+        <p class="mb-0" style="font-size: 0.85rem;">Search and view current company vacancies and job roles</p>
+    </div>
+</header> *@
+
+
+
+<!-- Search Form -->
+<div class="container mb-4">
+    <form method="get" class="input-group">
+        <input type="text" name="query" class="form-control me-2 rounded-pill shadow-sm" placeholder="Search company..." autocomplete="off" />
+        <button type="submit" class="btn btn-light bg-primary text-white rounded-pill px-4 shadow-sm">Search</button>
+    </form>
+</div>
+
+<!-- Results Table -->
+<div class="container">
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Id</th>
+                        <th>Company Name</th>
+                        <th>Vacancies</th>
+                        <th>Job Roles</th>
+                        <th>Need Factor</th>
+                        <th>Vacancy Factor</th>
+                        <th>Location</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var company in Model)
+                    {
+                        <tr>
+                            <td>@company.Id</td>
+                            <td>@company.Name</td>
+                            <td>@company.Vacancies</td>
+                            <td>@company.Job_roles</td>
+                            <td>@company.Need_Factor</td>
+                            <td>@company.Vacancy_Factor</td>
+                            <td>@company.Location</td>
+                            <td>@company.Contact</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center mt-4">
+            <img src="~/images/download.png" alt="No Results" style="max-height: 600px;" class="mb-2" />
+            <div>No results found.</div>
+        </div>
+
+    }
+</div>
+
+@if (ViewBag.TotalPages > 1)
+{
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+    int visiblePages = 7;
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+
+            <!-- Previous -->
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link popover-arrow" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="@(currentPage - 1)">Previous</a>
+            </li>
+
+            @{
+                int startPage = Math.Max(1, currentPage - visiblePages / 2);
+                int endPage = Math.Min(totalPages, startPage + visiblePages - 1);
+
+                if (endPage - startPage < visiblePages - 1)
+                {
+                    startPage = Math.Max(1, endPage - visiblePages + 1);
+                }
+
+                if (startPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="1">1</a>
+                    </li>
+                    if (startPage > 2)
+                    {
+                        <li class="page-item disabled"><span class="page-link">...</span></li>
+                    }
+                }
+
+                for (int i = startPage; i <= endPage; i++)
+                {
+                    <li class="page-item @(i == currentPage ? "active" : "")">
+                        <a class="page-link" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="@i">@i</a>
+                    </li>
+                }
+
+                if (endPage < totalPages)
+                {
+                    if (endPage < totalPages - 1)
+                    {
+                        <li class="page-item disabled"><span class="page-link">...</span></li>
+                    }
+                    <li class="page-item">
+                        <a class="page-link" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="@totalPages">@totalPages</a>
+                    </li>
+                }
+            }
+
+            <!-- Next -->
+            <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                <a class="page-link popover-arrow" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="@(currentPage + 1)">Next</a>
+            </li>
+        </ul>
+    </nav>
+}
+
+
+
+<!-- Footer -->
+@* <footer class="bg-dark text-light text-center py-3 mt-5">
+    <div class="container">
+        <small>&copy; @DateTime.Now.Year Company Vacancy Portal. All rights reserved.</small>
+    </div>
+</footer> *@

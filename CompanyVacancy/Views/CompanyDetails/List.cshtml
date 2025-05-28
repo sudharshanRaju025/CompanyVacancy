@@ -1,0 +1,43 @@
+﻿@using CompanyVacancy.Models;
+@model List<CompanyDetails>
+
+
+
+<h3>Job Vacancy List</h3>
+
+<table class="table table-bordered table-striped table-primary">
+	<thread>
+		<tr>
+			<th>Id</th>
+			<th>Company_Name</th>
+			<th>Vacancies</th>
+			<th>Job_roles</th>
+			<th>Need_Factor</th>
+			<th>Vacancy_Factor</th>
+			<th>Location</th>
+			<th>Contact</th>
+			<th> </th>
+		</tr>
+	</thread>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Vacancies</td>
+				<td>@item.Job_roles</td>
+				<td>@item.Need_Factor</td>
+				<td>@item.Vacancy_Factor</td>
+				<td>@item.Location</td>
+				<td>@item.Contact</td>
+				@* <td> *@
+				@* 	<a class="btn btn-primary" asp-controller="CompanyDetails" asp-action="List" asp-route-Id="@item.Id">Edit</a><br /> *@
+
+				@* </td> *@
+
+
+			</tr>
+		}
+	</tbody>
+</table>
