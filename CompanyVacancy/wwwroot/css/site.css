@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+mark {
+    background-color: #fffdd0; /* Bright yellow */
+    color: black;
+}

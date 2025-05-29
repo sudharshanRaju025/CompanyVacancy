@@ -1,5 +1,7 @@
 ﻿@model List<CompanyVacancy.Models.CompanyDetails>
 @using System.Text.RegularExpressions
+<link href="~/css/site.css" rel="stylesheet" type="text/css" />
+
 
 @functions {
     public string Highlight(string text, string searchTerm)
@@ -18,7 +20,7 @@
 <div class="container mb-4">
     <form method="get" class="input-group">
         <input type="text" name="query" class="form-control me-2 rounded-pill shadow-sm" placeholder="Search company..." autocomplete="off" value="@ViewBag.Query" />
-        <button type="submit" class="btn btn-light bg-primary text-white rounded-pill px-4 shadow-sm">Search</button>
+        <button type="submit" class="btn btn-light bg-info text-white rounded-pill px-4 shadow-sm">Search</button>
     </form>
 </div>
 
@@ -28,30 +30,30 @@
     {
         <div class="table-responsive shadow-sm rounded">
             <table class="table table-bordered table-striped align-middle">
-                <thead class="table-primary">
+                <thead class="table-info">
                     <tr>
-                        <th>Id</th>
-                        <th>Company Name</th>
-                        <th>Vacancies</th>
-                        <th>Job Roles</th>
-                        <th>Need Factor</th>
-                        <th>Vacancy Factor</th>
-                        <th>Location</th>
-                        <th>Contact</th>
+                        @* <th style="font-size:17px">Id</th> *@
+                        <th style="font-size:17px">Company Name</th>
+                        <th style="font-size:17px">Vacancies</th>
+                        <th style="font-size:17px">Job Roles</th>
+                        <th style="font-size:17px">Need Factor</th>
+                        <th style="font-size:17px">Vacancy Factor</th>
+                        <th style="font-size:17px">Location</th>
+                        <th style="font-size:17px">Contact</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var company in Model)
                     {
                         <tr>
-                            <td>@company.Id</td>
-                            <td>@Html.Raw(Highlight(company.Name, ViewBag.Query as string))</td>
-                            <td>@Html.Raw(Highlight(company.Vacancies.ToString(), ViewBag.Query as string))</td>
-                            <td>@Html.Raw(Highlight(company.Job_roles, ViewBag.Query as string))</td>
-                            <td>@Html.Raw(Highlight(company.Need_Factor.ToString(), ViewBag.Query as string))</td>
-                            <td>@Html.Raw(Highlight(company.Vacancy_Factor.ToString(), ViewBag.Query as string))</td>
-                            <td>@Html.Raw(Highlight(company.Location, ViewBag.Query as string))</td>
-                            <td>@Html.Raw(Highlight(company.Contact, ViewBag.Query as string))</td>
+                            @* <td>@company.Id</td> *@
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Name, ViewBag.Query as string))</td>
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Vacancies.ToString(), ViewBag.Query as string))</td>
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Job_roles, ViewBag.Query as string))</td>
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Need_Factor.ToString(), ViewBag.Query as string))</td>
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Vacancy_Factor.ToString(), ViewBag.Query as string))</td>
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Location, ViewBag.Query as string))</td>
+                            <td style="font-size:15px">@Html.Raw(Highlight(company.Contact, ViewBag.Query as string))</td>
                         </tr>
                     }
                 </tbody>
@@ -127,9 +129,9 @@
     </nav>
 }
 
-<!-- Footer -->
+@* <!-- Footer -->
 <footer class="bg-dark text-light text-center py-3 mt-5">
     <div class="container">
         <small>&copy; @DateTime.Now.Year Company Vacancy Portal. All rights reserved.</small>
-    </div>
-</footer>
+    </div> *@
+@* </footer> *@
