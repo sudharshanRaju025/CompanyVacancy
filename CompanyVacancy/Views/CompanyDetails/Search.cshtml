@@ -19,7 +19,7 @@
 <!-- Search Form -->
 <div class="container mb-4">
     <form method="get" class="input-group">
-        <input type="text" name="query" class="form-control me-2 rounded-pill shadow-sm" placeholder="Search company..." autocomplete="off" value="@ViewBag.Query" />
+        <input type="text" style="text-decoration-color:black" name="query" class="form-control me-2 rounded-pill shadow-sm " placeholder="Search company..." autocomplete="off" value="@ViewBag.Query" />
         <button type="submit" class="btn btn-light bg-info text-white rounded-pill px-4 shadow-sm">Search</button>
     </form>
 </div>
@@ -28,18 +28,20 @@
 <div class="container">
     @if (Model != null && Model.Any())
     {
-        <div class="table-responsive shadow-sm rounded">
-            <table class="table table-bordered table-striped align-middle">
+        <div class="table-responsive shadow-sm rounded-3">
+            <table class="table table-bordered table-striped align-middle shadow bg-transparent  " style="background-color: rgba(169, 169, 169, 0.95);box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+               border-top-left-radius: 10px;border-top-right-radius: 10px; ">
+                 
                 <thead class="table-info">
                     <tr>
                         @* <th style="font-size:17px">Id</th> *@
-                        <th style="font-size:17px">Company Name</th>
-                        <th style="font-size:17px">Vacancies</th>
-                        <th style="font-size:17px">Job Roles</th>
-                        <th style="font-size:17px">Need Factor</th>
-                        <th style="font-size:17px">Vacancy Factor</th>
-                        <th style="font-size:17px">Location</th>
-                        <th style="font-size:17px">Contact</th>
+                        <th style="font-size:17px;border: 1px solid black">Company Name</th>
+                        <th style="font-size:17px;border: 1px solid black">Vacancies</th>
+                        <th style="font-size:17px;border: 1px solid black">Job Roles</th>
+                        <th style="font-size:17px;border: 1px solid black">Need Factor</th>
+                        <th style="font-size:17px;border: 1px solid black">Vacancy Factor</th>
+                        <th style="font-size:17px;border: 1px solid black">Location</th>
+                        <th style="font-size:17px;border: 1px solid black">Contact</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,13 +49,13 @@
                     {
                         <tr>
                             @* <td>@company.Id</td> *@
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Name, ViewBag.Query as string))</td>
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Vacancies.ToString(), ViewBag.Query as string))</td>
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Job_roles, ViewBag.Query as string))</td>
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Need_Factor.ToString(), ViewBag.Query as string))</td>
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Vacancy_Factor.ToString(), ViewBag.Query as string))</td>
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Location, ViewBag.Query as string))</td>
-                            <td style="font-size:15px">@Html.Raw(Highlight(company.Contact, ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color: rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Name, ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color:rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Vacancies.ToString(), ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color:rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Job_roles, ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color:rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Need_Factor.ToString(), ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color:rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Vacancy_Factor.ToString(), ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color:rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Location, ViewBag.Query as string))</td>
+                            <td style="font-size:15px;background-color:rgba(255, 255, 255, 0.7);border: 1px solid black;">@Html.Raw(Highlight(company.Contact, ViewBag.Query as string))</td>
                         </tr>
                     }
                 </tbody>
@@ -129,9 +131,9 @@
     </nav>
 }
 
-@* <!-- Footer -->
-<footer class="bg-dark text-light text-center py-3 mt-5">
+<!-- Footer -->
+@* <footer class="bg-dark text-light text-center py-3 mt-5">
     <div class="container">
         <small>&copy; @DateTime.Now.Year Company Vacancy Portal. All rights reserved.</small>
-    </div> *@
-@* </footer> *@
+    </div> 
+ </footer> *@

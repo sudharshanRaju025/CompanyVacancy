@@ -12,15 +12,44 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+td {
+    font-size:15px;
+    background-color:rgba(255, 255, 255, 0.7);
+    border: 1px solid black;
+}
+th {
+    font-size: 17px;
+    border: 1px solid black
+}
+
 html {
   position: relative;
   min-height: 100%;
 }
+td{
+    text-decoration-color:purple;
+}
 
 body {
   margin-bottom: 60px;
+  background-image:url("../images/bacakgroundimage.jpg");
+  background-repeat:no-repeat ;
+  background-size:100%100%;
+  opacity:100%;
 }
 mark {
     background-color: #fffdd0; /* Bright yellow */
     color: black;
 }
+
+/*header {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);*/ /* Semi-transparent black */
+    /*color: white;
+    padding: 10px;
+    z-index: 1000;
+}*/

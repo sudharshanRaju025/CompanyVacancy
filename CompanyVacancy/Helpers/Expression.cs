@@ -12,7 +12,7 @@ namespace CompanyVacancy
         public static string ParseToDynamicLinq(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                return string.Empty;
+                return "no results found"; 
 
             // Define known job roles and company names
             string[] knownJobRoles = {
