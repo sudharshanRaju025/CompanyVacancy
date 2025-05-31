@@ -43,7 +43,7 @@ namespace CompanyVacancy.Controllers
 
             if (!string.IsNullOrWhiteSpace(fetch))
             {
-                companies = companies.Where(fetch);
+                companies = companies.Where(fetch).OrderBy(s=>s.Job_roles);
             }
         }
 
