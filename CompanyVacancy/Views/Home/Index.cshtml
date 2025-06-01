@@ -1,5 +1,133 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Company Details";
 }
+@{
+    Layout = null;
+}
 
-<h1>Company Details</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Design Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('/images/index.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.05);
+            width:600px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+            .left-panel h1 {
+                font-size: 48px;
+                font-weight: 800;
+            }
+
+                .left-panel h1 .highlight {
+                    color: #3A5FFF;
+                }
+
+            .left-panel p {
+                font-size: 18px;
+                margin-top: 20px;
+            }
+
+        .right-panel {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            width:500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            margin-bottom: 20px;
+            height: 48px;
+        }
+
+            .form-control::placeholder {
+                color: #999;
+            }
+
+        .btn-primary {
+            background-color: #3A5FFF;
+            border: none;
+            height: 48px;
+        }
+
+        .social-icons button {
+            background-color: #f5f5f5;
+            border: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="left-panel">
+            <h1><span class="highlight text-black">Start</span><br><span class=" highlight text-black">Your </span><span class="highlight text-black">Career</span><br></h1><br />
+            <h4>
+                <span style="color: black;">-every journey</span> <span style="color: black;">starts with</span> <span style="color: darkblue;">ONE STEP</span>
+            </h4>
+        </div>
+
+        <div class="right-panel">
+            <h3 class="mb-3 fw-bold">Hello!</h3>
+            <p class="mb-4">Kindly enter your credentials</p>
+            <form asp-controller="CompanyDetails" asp-action="Search" method="get">
+                <input type="text" class="form-control" placeholder="Username" name="username" />
+                <input type="password" class="form-control" placeholder="Password" name="password" />
+                <button type="submit" class="btn btn-primary w-100">Log in</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <small>or sign in with</small>
+                <div class="social-icons mt-2">
+                    <button><i class="bi bi-facebook"></i> f</button>
+                    <button><i class="bi bi-google"></i> G</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

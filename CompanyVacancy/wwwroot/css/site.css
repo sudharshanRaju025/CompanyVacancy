@@ -13,13 +13,24 @@ html {
 }
 
 td {
-    font-size:15px;
-    background-color:rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    background-color:#00A2E5;
     border: 1px solid black;
 }
 th {
     font-size: 17px;
     border: 1px solid black
+}
+
+.overlay {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 html {
@@ -31,11 +42,12 @@ td{
 }
 
 body {
-  margin-bottom: 60px;
-  background-image:url("../images/bacakgroundimage.jpg");
-  background-repeat:no-repeat ;
-  background-size:100%100%;
-  opacity:100%;
+    margin-bottom: 60px;
+    
+    background-image: url("../images/bacakgroundimage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%100%;
+    opacity: 100%;
 }
 mark {
     background-color: #fffdd0; /* Bright yellow */

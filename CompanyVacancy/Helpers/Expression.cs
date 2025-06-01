@@ -113,7 +113,7 @@ namespace CompanyVacancy
             };
 
             string[] endwords = {
-                "Developer", "Analyst", "Tester", "HR", "Researcher", "Designer", "Coordinator", "Architect",
+                "Developer", "Analyst", "Tester", "HR", "Researcher", "Designer", "Coordinator", "Architect","QA"
                 
             };
 
