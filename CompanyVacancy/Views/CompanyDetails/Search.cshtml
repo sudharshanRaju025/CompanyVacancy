@@ -15,16 +15,14 @@
         );
     }
 }
-
-<!-- Search Form -->
 <div class="container mb-4">
     <form method="get" class="input-group">
         <input type="text" style="text-decoration-color:black" name="query" class="form-control me-2 rounded-pill shadow-sm " placeholder="Search company..." autocomplete="off" value="@ViewBag.Query" />
-        <button type="submit" class="btn btn-light bg-info text-white rounded-pill px-4 shadow-sm">Search</button>
+        <button type="submit" class="btn btn-light bg-info text-black rounded-pill px-4 shadow-sm">Search</button>
     </form>
 </div>
 
-<!-- Results Table -->
+
 <div class="container">
     @if (Model != null && Model.Any())
     {
@@ -65,8 +63,8 @@
     else
     {
         <div class="alert alert-warning text-center mt-4">
-            <img src="~/images/download.png" alt="No Results" style="max-height: 600px;" class="mb-2" />
-            <div>No results found.</div>
+            <img style="max-height: 600px;background-size:100%" src="~/images/download.png" alt="No Results"  class="mb-2" />
+            
         </div>
     }
 </div>
@@ -79,7 +77,7 @@
 
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-            <!-- Previous -->
+          
             <li class="page-item @(currentPage == 1 ? "disabled" : "")">
                 <a class="page-link" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="@(currentPage - 1)">Previous</a>
             </li>
@@ -123,7 +121,7 @@
                 }
             }
 
-            <!-- Next -->
+           
             <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
                 <a class="page-link" asp-action="Search" asp-route-query="@ViewBag.Query" asp-route-page="@(currentPage + 1)">Next</a>
             </li>
@@ -131,9 +129,4 @@
     </nav>
 }
 
-<!-- Footer -->
-@* <footer class="bg-dark text-light text-center py-3 mt-5">
-    <div class="container">
-        <small>&copy; @DateTime.Now.Year Company Vacancy Portal. All rights reserved.</small>
-    </div> 
- </footer> *@
+
